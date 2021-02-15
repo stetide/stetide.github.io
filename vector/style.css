@@ -159,6 +159,10 @@ input[type=text]:focus {
 }
 
 @media only screen and (max-width: 768px) {
+    body {
+        height: 90%;
+    }
+    
     input[type=button] {
         width: 20%;
     }
