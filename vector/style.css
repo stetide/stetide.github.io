@@ -157,3 +157,13 @@ input[type=text] {
 input[type=text]:focus {
     outline: none;
 }
+
+@media only screen and (max-width: 768px) {
+    input[type=button] {
+        width: 20%;
+    }
+
+    h1 {
+        font-size: 36pt;
+    }
+}
