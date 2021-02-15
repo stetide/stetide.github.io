@@ -153,7 +153,6 @@ input[type=text] {
     background: var(--white);
     padding: 10px;
     margin: 0;
-    text-transform: lowercase;
     /* caret-color: var(--red);
     caret-shape: block; */
 }
