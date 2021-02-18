@@ -23,14 +23,8 @@ function onSend() {
     cmdSpan.appendChild(cmdSpanNode);
     var cmdBr = document.createElement("br");
 
-    switch (input.value) {
-    case "exit":
-        location.reload();
-    case "clear":
-        input.value = "";
-        clear();
-        return;
-    case "":
+    // tmp
+    if (input.value == "") {
         var par = document.createElement("p");
         par.appendChild(cmdSpan)
         display.prepend(par);
@@ -39,6 +33,16 @@ function onSend() {
     var res = run(input.value);
     input.value = "";
     console.log(res);
+
+    switch (res) {
+        case "exit":
+            location.reload();
+            break;
+        case "clear":
+            input.value = "";
+            clear();
+            return;
+    }
     
     var par = document.createElement("p");
     var parNode = document.createTextNode(res);
