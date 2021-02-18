@@ -35,6 +35,8 @@ function onSend() {
     console.log(res);
 
     switch (res) {
+        case "undefined":
+            location.reload();
         case "exit":
             // location.reload();
             // window.location.href = "stetide.github.io";
