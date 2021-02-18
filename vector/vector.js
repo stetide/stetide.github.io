@@ -37,15 +37,20 @@ function onSend() {
     switch (res) {
         case "undefined":
             location.reload();
+            break;
         case "exit":
             // location.reload();
-            // window.location.href = "stetide.github.io";
-            location.replace("stetide.github.io");
+            // window.location.href = "//stetide.github.io";
+            location.replace("//stetide.github.io");
             break;
         case "clear":
             input.value = "";
             clear();
             return;
+        //tmp
+        default:
+            console.log(res);
+            break;
     }
     
     var par = document.createElement("p");
