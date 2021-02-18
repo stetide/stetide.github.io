@@ -36,7 +36,8 @@ function onSend() {
 
     switch (res) {
         case "exit":
-            location.reload();
+            // location.reload();
+            location.href = "stetide.github.io";
             break;
         case "clear":
             input.value = "";
