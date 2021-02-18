@@ -40,8 +40,8 @@ function onSend() {
             break;
         case "exit":
             // location.reload();
-            // window.location.href = "stetide.github.io";
-            window.location.replace("stetide.github.io");
+            // window.location.href = "//stetide.github.io";
+            location.replace("//stetide.github.io");
             break;
         case "clear":
             input.value = "";
