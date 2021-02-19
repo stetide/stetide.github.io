@@ -1,0 +1,37 @@
+:root {
+    --red: rgb(192, 90, 90);
+    --dark-grey: #131516;
+    --light-grey: #202122;
+    --white: #ccc;
+    --black: #000;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    min-width: 360px;
+    min-height: 560px;
+}
+
+body {
+    width: 95%;
+    height: 80%;
+    background: var(--dark-grey);
+    color: var(--black);
+    font-family: Hack, monospace;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 48pt;
+    font-weight: bold;
+}
+
