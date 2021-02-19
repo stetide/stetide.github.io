@@ -25,6 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 2% 5%;
     background: var(--dark-grey);
@@ -40,11 +41,20 @@ h1 {
 
 #wrapper {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 95%;
+    height: 100%;
+    background: var(--dark-grey);
+}
+
+#terminal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     background: var(--dark-grey);
 }
 
@@ -148,32 +158,30 @@ input[type=text]:focus {
 
 #cheatsheet {
     /*display: none;*/
-    box-sizing: border-box;
-    right: 0;
     height: 100%;
     margin-left: 2%;
     padding: 10px;
+    box-sizing: border-box;
     background: var(--light-grey);
 }
 
 ul {
     list-style-type: none;
     list-style-position: inside;
-    box-sizing: border-box;
     margin-left: 2em;
 }
 
 @media (max-width: 1080px) {
-    body {
-        flex-direction: column;
-    }
-
     #wrapper {
-        height: 100%;
+        flex-direction: column;
     }
 
     #cheatsheet {
         height: min-content;
+        width: 100%;
+        margin: 0;
+        margin-top: 2%;
+        overflow: auto;
     }
     
     input[type=button] {
