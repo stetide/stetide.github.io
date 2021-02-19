@@ -9,6 +9,8 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Hack, monospace;
+    font-weight: bold;
 }
 
 html {
@@ -54,6 +56,13 @@ h1 {
 }
 
 a {
+    color: var(--red);
+    text-decoration: none;
+    font-size: 24pt;
+}
+
+/*
+a {
     width: min-content;
     text-align: center;
     color: var(--red);
@@ -68,16 +77,25 @@ a:hover {
     text-shadow:  2px 2px var(--dark-grey), 4px 4px var(--white);
     transform: translate(-1px, -1px);
 }
+*/
 
 .bubble {
     position: fixed;
     top: 50%;
     left: 50%;
-    background: var(--red);
+    background: var(--light-grey);
     border: none;
     border-radius: 50%;
     box-shadow: inset 0 0 10px var(--black);
-    transition: transform 5s linear;
+    /*transition: transform 1ms linear;*/
     transform-origin: center;
     z-index: -1;
+}
+
+@media (max-width: 1080px) {
+    #links {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
