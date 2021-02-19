@@ -15,7 +15,9 @@ for (var i = 0; i < bubbles.length; i++) {
 
 function animateBubbles() {
     for (var i = 0; i < bubbles.length; i++) {
-        $(bubbles[i]).css("transform", `translate(${20 - Math.random() * 10}vw, ${20 - Math.random() * 10}vh)`);
+        $(bubbles[i]).css("transform", `translate(${50 - Math.random() * 100}vw, ${50 - Math.random() * 100}vh)`);
     }
 }
+
+animateBubbles();
 setInterval(animateBubbles, 5000);

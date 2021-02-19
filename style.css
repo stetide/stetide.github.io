@@ -44,14 +44,17 @@ h1 {
     justify-content: space-between;
     align-content: center;
     text-align: center;
+    z-index: 5;
 }
 
 .bubble {
     position: absolute;
+    top: 50%;
+    left: 50%;
     background: var(--red);
     border: none;
     border-radius: 50%;
-    /*z-index: -1;*/
     transition: transform 5s linear;
-    transform-origin: top left;
+    transform-origin: center;
+    z-index: 3;
 }
