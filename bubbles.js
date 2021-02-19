@@ -4,5 +4,18 @@ var bubbles = document.getElementsByClassName("bubble");
     bubble.setAttribute("style", "width:")
 }*/
 for (var i = 0; i < bubbles.length; i++) {
-    bubbles[i].setA
+    var size = Math.floor(Math.random() * 30) + 30;
+    $(bubbles[i]).css({
+        "width": `${size}px`,
+        "height": `${size}px`,
+        "opacity": Math.random() * 0.6 + 0.2,
+        // "transform": "translate("+(i*100/bubbles.length)+"vw, "+(-i*100/bubbles.length)+"vh)",
+    });
 }
+
+function animateBubbles() {
+    for (var i = 0; i < bubbles.length; i++) {
+        $(bubbles[i]).css("transform", `translate(${20 - Math.random() * 10}vw, ${20 - Math.random() * 10}vh)`);
+    }
+}
+setInterval(animateBubbles, 5000);
