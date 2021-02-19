@@ -98,6 +98,7 @@ p {
 }
 
 p span {
+    color: var(--black);
     margin: 0 10px 0 0;
 }
 
