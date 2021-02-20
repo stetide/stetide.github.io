@@ -1,20 +1,18 @@
 const input = document.getElementById("txtInpt");
 const send = document.getElementById("sendBtn");
 const display = document.getElementById("display");
-const cheatBtn = document.getElementById("cheatBtn");
+const cheatBtnO = document.getElementById("cheatBtnOpen");
+const cheatBtnC = document.getElementById("cheatBtnClose");
 const cheatSheet = document.getElementById("cheatsheet");
 
-let open = false;
-cheatBtn.onclick = function() {
-    if (!open) {
-        cheatBtn.classList.add("open");
-        cheatSheet.classList.remove("closed");
-        open = true;
-    } else {
-        cheatBtn.classList.remove("open");
-        cheatSheet.classList.add("closed");
-        open = false;
-    }
+cheatBtnO.onclick = function() {
+    cheatBtnO.classList.add("open");
+    cheatSheet.classList.remove("closed");
+}
+
+cheatBtnC.onclick = function() {
+    cheatBtnO.classList.remove("open");
+    cheatSheet.classList.add("closed");
 }
 
 input.addEventListener("keydown", function(event) {

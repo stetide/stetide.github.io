@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"me/vector/vector"
 	"strings"
 	"syscall/js"
+
+	"github.com/stetide/vector/vector"
 )
 
 func run(txt string) string {

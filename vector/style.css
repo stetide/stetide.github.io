@@ -7,6 +7,7 @@
     --black: #000;
 
     --padding: 20px;
+    --button-rad: 25px;
 }
 
 * {
@@ -29,6 +30,8 @@ body {
     flex-direction: column;
     box-sizing: border-box;
     padding: 2% 5%;
+    overflow: hidden;
+    /*padding-right: calc(5%-var(--button-rad));*/
     background: var(--dark-grey);
     color: var(--black);
 }
@@ -37,7 +40,7 @@ h1 {
     width: 100%;
     text-align: center;
     text-transform: uppercase;
-    font-size: 48pt;
+    font-size: 64px;
 }
 
 #wrapper {
@@ -45,7 +48,7 @@ h1 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 64px);
     background: var(--dark-grey);
 }
 
@@ -159,12 +162,47 @@ input[type=text]:focus {
     outline: none;
 }
 
-#button {
+#cheatsheet {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: calc(6px + var(--button-rad)) auto;
+    grid-template-rows: calc(50% - 15px) 31px auto;
+    width: 35%;
+    height: 100%;
+    margin-left: 1%;
+    padding: 10px 10px 10px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: var(--light-grey);
+    transition: 0.2s;
+}
+
+#cheatsheet .content {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    overflow: auto;
+}
+
+#cheatsheet.closed {
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: scale(80%);
+}
+
+ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin-left: 2em;
+}
+
+#cheatBtnOpen, #cheatBtnClose {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
-    left: calc(100% - 25px);
     width: 50px;
     height: 50px;
     border: solid 3px var(--dark-grey);
@@ -172,27 +210,20 @@ input[type=text]:focus {
     background: var(--light-grey);
 }
 
-#button.open {
+#cheatBtnOpen {
+    position: fixed;
+    top: 50%;
+    left: calc(100% - var(--button-rad));
+}
+
+#cheatBtnOpen.open {
     display: none;
 }
 
-#cheatsheet {
-    width: 35%;
-    height: 100%;
-    margin-left: 2%;
-    padding: 10px;
-    box-sizing: border-box;
-    background: var(--light-grey);
-}
-
-#cheatsheet.closed {
-    display: none;
-}
-
-ul {
-    list-style-type: none;
-    list-style-position: inside;
-    margin-left: 2em;
+#cheatBtnClose {
+    grid-column: 1;
+    grid-row: 2;
+    transform: translateX(-28px) rotate(180deg);
 }
 
 @media (max-width: 1080px) {
