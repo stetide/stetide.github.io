@@ -60,6 +60,9 @@ function onSend() {
             input.value = "";
             clear();
             return;
+        case "help":
+            location.replace("/help/");
+            break;
         //tmp
         default:
             console.log(res);
