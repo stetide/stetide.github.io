@@ -1,6 +1,21 @@
-var input = document.getElementById("txtInpt");
-var send = document.getElementById("sendBtn");
-var display = document.getElementById("display");
+const input = document.getElementById("txtInpt");
+const send = document.getElementById("sendBtn");
+const display = document.getElementById("display");
+const cheatBtn = document.getElementById("cheatBtn");
+const cheatSheet = document.getElementById("cheatsheet");
+
+let open = false;
+cheatBtn.onclick = function() {
+    if (!open) {
+        cheatBtn.classList.add("open");
+        cheatSheet.classList.remove("closed");
+        open = true;
+    } else {
+        cheatBtn.classList.remove("open");
+        cheatSheet.classList.add("closed");
+        open = false;
+    }
+}
 
 input.addEventListener("keydown", function(event) {
     if (event.keyCode == 13) {
@@ -10,27 +25,27 @@ input.addEventListener("keydown", function(event) {
 });
 
 function clear() {
-    var pars = document.getElementsByTagName("p");
-    for (var i = pars.length -1; i >= 0; i--) {
+    let pars = document.getElementsByTagName("p");
+    for (let i = pars.length -1; i >= 0; i--) {
         pars[i].parentNode.removeChild(pars[i]);
     }
 }
 
 function onSend() {
-    var cmdSpan = document.createElement("span");
-    var cmdSpanNode = document.createTextNode("$");
-    var cmdNode = document.createTextNode(input.value);
+    let cmdSpan = document.createElement("span");
+    let cmdSpanNode = document.createTextNode("$");
+    let cmdNode = document.createTextNode(input.value);
     cmdSpan.appendChild(cmdSpanNode);
-    var cmdBr = document.createElement("br");
+    let cmdBr = document.createElement("br");
 
     // tmp
     if (input.value == "") {
-        var par = document.createElement("p");
+        let par = document.createElement("p");
         par.appendChild(cmdSpan)
         display.prepend(par);
         return;
     }
-    var res = run(input.value);
+    let res = run(input.value);
     input.value = "";
     console.log(res);
 
@@ -53,11 +68,11 @@ function onSend() {
             break;
     }
     
-    var par = document.createElement("p");
-    var parNode = document.createTextNode(res);
+    let par = document.createElement("p");
+    let parNode = document.createTextNode(res);
     
-    var resSpan = document.createElement("span");
-    var resNode = document.createTextNode(">>");
+    let resSpan = document.createElement("span");
+    let resNode = document.createTextNode(">>");
     resSpan.appendChild(resNode);
     
     par.appendChild(cmdSpan);

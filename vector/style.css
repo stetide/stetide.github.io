@@ -1,7 +1,8 @@
 :root {
     --red: rgb(192, 90, 90);
     --dark-grey: #131516;
-    --light-grey: #202122;
+    --grey: #202122;
+    --light-grey: #34373a;
     --white: #ccc;
     --black: #000;
 
@@ -158,14 +159,34 @@ input[type=text]:focus {
     outline: none;
 }
 
-#cheatsheet {
+#button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    left: calc(100% - 25px);
+    width: 50px;
+    height: 50px;
+    border: solid 3px var(--dark-grey);
+    border-radius: 50%;
+    background: var(--light-grey);
+}
+
+#button.open {
     display: none;
+}
+
+#cheatsheet {
     width: 35%;
     height: 100%;
     margin-left: 2%;
     padding: 10px;
     box-sizing: border-box;
     background: var(--light-grey);
+}
+
+#cheatsheet.closed {
+    display: none;
 }
 
 ul {
