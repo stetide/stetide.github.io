@@ -23,6 +23,10 @@ html, body {
     height: 100%;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     display: flex;
     align-items: center;
