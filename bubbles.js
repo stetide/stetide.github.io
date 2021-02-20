@@ -13,10 +13,12 @@ for (var i = 0; i < bubbles.length; i++) {
     });
 }*/
 
+let cout = 0
 function animateBubbles() {
     for (var i = 0; i < bubbles.length; i++) {
         $(bubbles[i]).css("transform", `translate(${65 - Math.random() * 130}vw, ${65 - Math.random() * 130}vh)`);
     }
+    cout++;
 }
 
 var bubbles = document.getElementsByClassName("bubble");
@@ -30,5 +32,11 @@ for (var i = 0; i < bubbles.length; i++) {
     });
 }
 animateBubbles();
-setTimeout(function(){ for (var i = 0; i < bubbles.length; i++) { $(bubbles[i]).css("transition", `transform linear ${Math.random() * 7 + 8}s`); } animateBubbles(); }, 1);
-setInterval(animateBubbles, 5000);
+setTimeout(function(){
+    for (var i = 0; i < bubbles.length; i++) {
+        // $(bubbles[i]).css("transition", `transform ${Math.random() * 7 + 8}s linear`);
+        $(bubbles[i]).css("transition", "transform 8s linear");
+    }
+    animateBubbles(); 
+}, 1);
+// setInterval(animateBubbles, 5000);
