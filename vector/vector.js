@@ -61,7 +61,7 @@ function onSend() {
             clear();
             return;
         case "help":
-            location.replace("/help/");
+            location.replace("/vector/help/");
             break;
         //tmp
         default:

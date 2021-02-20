@@ -30,5 +30,5 @@ for (var i = 0; i < bubbles.length; i++) {
     });
 }
 animateBubbles();
-setTimeout(function(){ $(".bubble").css("transition", "transform 5s linear"); animateBubbles(); }, 1);
+setTimeout(function(){ for (var i = 0; i < bubbles.length; i++) { $(bubbles[i]).css("transition", `transform linear ${Math.random() * 7 + 8}s`); } animateBubbles(); }, 1);
 setInterval(animateBubbles, 5000);
