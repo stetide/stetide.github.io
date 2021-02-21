@@ -72,6 +72,7 @@ function onSend() {
             // let win = window.open("/vector/help/", "_blank");
             // win.focus();
             openNewTab("/vector/help/");
+            res += " (Erlaube Pop-up-Fenster, wenn sich keine neue Seite öffnet.)"
             break;
         //tmp
         default:
