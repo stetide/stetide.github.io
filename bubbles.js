@@ -17,7 +17,7 @@ for (let i = 0; i < bubbles.length; i++) {
     $(bubbles[i]).css({
         "width": `${size}px`,
         "height": `${size}px`,
-        "opacity": Math.random() * 0.1 + 0.05,
+        "opacity": Math.random() * 0.2 + 0.5,
         "transform": `translate(${65 - Math.random() * 130}vw, ${65 - Math.random() * 130}vh)`,
     });
 }
