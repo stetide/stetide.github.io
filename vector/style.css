@@ -1,5 +1,5 @@
 :root {
-    --red: rgb(192, 90, 90);
+    --red: #c05a5a;
     --dark-grey: #131516;
     --grey: #202122;
     --light-grey: #34373a;
@@ -212,20 +212,34 @@ ul {
 }
 
 #cheatBtnOpen, #cheatBtnClose {
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;*/
     width: 50px;
     height: 50px;
-    border: solid 3px var(--dark-grey);
+    /*border: solid 3px var(--dark-grey);*/
+    border: none;
     border-radius: 50%;
-    background: var(--light-grey);
+}
+
+#cheatBtnOpen img, #cheatBtnClose img {
+    filter: invert(1) saturate(80%);
+}
+
+#cheatBtnOpen img:hover, #cheatBtnClose img:hover {
+    /*filter: invert(44%) sepia(13%) saturate(2536%) hue-rotate(313deg) brightness(93%) contrast(78%);*/
+    filter: invert(48%) sepia(29%) saturate(4372%) hue-rotate(331deg) brightness(90%) contrast(63%);
+}
+
+#cheatBtnClose {
+    background: var(--dark-grey);
 }
 
 #cheatBtnOpen {
     position: fixed;
-    top: calc(50% - 25px);
+    top: calc(50% - 28px + 64px);
     left: calc(100% - var(--button-rad));
+    background: var(--light-grey);
 }
 
 #cheatBtnOpen.open {
@@ -235,7 +249,7 @@ ul {
 #cheatBtnClose {
     grid-column: 1;
     grid-row: 2;
-    transform: translateX(-28px) rotate(180deg);
+    transform: translateX(-25px) rotate(180deg);
 }
 
 @media (max-width: 1080px) {
