@@ -13,17 +13,21 @@ for (var i = 0; i < bubbles.length; i++) {
     });
 }*/
 
-let cout = 0
-function animateBubbles() {
-    for (var i = 0; i < bubbles.length; i++) {
-        $(bubbles[i]).css("transform", `translate(${65 - Math.random() * 130}vw, ${65 - Math.random() * 130}vh)`);
-    }
-    cout++;
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-var bubbles = document.getElementsByClassName("bubble");
-for (var i = 0; i < bubbles.length; i++) {
-    var size = Math.floor(Math.random() * 30) + 30;
+for (let i = 0; i < 50; i++) {
+    let bubble = document.createElement("div")
+    bubble.className = "bubble";
+    $(bubble).css("transform", `translate(${65 - Math.random() * 130}vw, ${65 - Math.random() * 130}vh)`);
+    document.body.appendChild(bubble);
+}
+
+let bubbles = document.getElementsByClassName("bubble");
+for (let i = 0; i < bubbles.length; i++) {
+    console.log(i);
+    let size = Math.floor(Math.random() * 30) + 30;
     $(bubbles[i]).css({
         "width": `${size}px`,
         "height": `${size}px`,
@@ -31,12 +35,17 @@ for (var i = 0; i < bubbles.length; i++) {
         "transform": `translate(${65 - Math.random() * 130}vw, ${65 - Math.random() * 130}vh)`,
     });
 }
-animateBubbles();
-setTimeout(function(){
-    for (var i = 0; i < bubbles.length; i++) {
-        // $(bubbles[i]).css("transition", `transform ${Math.random() * 7 + 8}s linear`);
-        $(bubbles[i]).css("transition", "transform 8s linear");
+
+async function animateBubbles() {
+    let i = 0;
+    while (true) {
+        $(bubbles[i]).css("transform", `translate(${65 - Math.random() * 130}vw, ${65 - Math.random() * 130}vh)`);
+
+        i++
+        if (i == bubbles.length) i = 0;
+        await sleep(8000 / bubbles.length - 50 * Math.random());
     }
-    animateBubbles(); 
-}, 1);
-// setInterval(animateBubbles, 5000);
+}
+
+animateBubbles();
+$(".bubble").css("transition", "transform 8s linear");
