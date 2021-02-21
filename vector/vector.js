@@ -29,6 +29,13 @@ function clear() {
     }
 }
 
+function openNewTab(url) {
+    let link = document.createElement("a");
+    link.href = url;
+    link.setAttribute('target', '_blank');
+    link.click();
+}
+
 function onSend() {
     let cmdSpan = document.createElement("span");
     let cmdSpanNode = document.createTextNode("$");
@@ -62,8 +69,9 @@ function onSend() {
             return;
         case "help":
             // location.replace("/vector/help/");
-            let win = window.open("/vector/help/", "_blank");
-            win.focus();
+            // let win = window.open("/vector/help/", "_blank");
+            // win.focus();
+            openNewTab("/vector/help/");
             break;
         //tmp
         default:
