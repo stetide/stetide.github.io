@@ -61,7 +61,9 @@ function onSend() {
             clear();
             return;
         case "help":
-            location.replace("/vector/help/");
+            // location.replace("/vector/help/");
+            let win = window.open("/vector/help/", "_blank");
+            win.focus();
             break;
         //tmp
         default:
