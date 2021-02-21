@@ -248,6 +248,7 @@ ul {
 #cheatBtnOpen img:hover, #cheatBtnClose img:hover {
     /*filter: invert(44%) sepia(13%) saturate(2536%) hue-rotate(313deg) brightness(93%) contrast(78%);*/
     filter: invert(48%) sepia(29%) saturate(4372%) hue-rotate(331deg) brightness(90%) contrast(63%);
+    cursor: pointer;
 }
 
 #cheatBtnClose {
