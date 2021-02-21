@@ -18,6 +18,7 @@
     font-family: JetBrains;
     font-weight: bold;
     box-sizing: border-box;
+    user-select: none;
 }
 
 html, body {
