@@ -210,6 +210,7 @@ a:hover {
     box-sizing: border-box;
     background: var(--light-grey);
     transition: 0.2s;
+    user-select: text;
 }
 
 #cheatsheet .content {
