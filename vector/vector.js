@@ -32,7 +32,7 @@ function clear() {
 function openNewTab(url) {
     let link = document.createElement("a");
     link.href = url;
-    link.setAttribute('target', '_blank');
+    link.setAttribute("target", "_blank");
     link.click();
 }
 
@@ -41,6 +41,7 @@ function onSend() {
     let cmdSpanNode = document.createTextNode("$");
     let cmdNode = document.createTextNode(input.value);
     cmdSpan.appendChild(cmdSpanNode);
+    cmdSpan.setAttribute("class", "unselectable");
     let cmdBr = document.createElement("br");
 
     // tmp
@@ -55,7 +56,7 @@ function onSend() {
     console.log(res);
 
     switch (res) {
-        case "undefined":
+        case undefined:
             location.reload();
             break;
         case "exit":
