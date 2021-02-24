@@ -45,12 +45,12 @@ function onSend() {
     let cmdBr = document.createElement("br");
 
     // tmp
-    /*if (input.value == "") {
-        let par = document.createElement("p");
+    if (input.value == "") {
+        /*let par = document.createElement("p");
         par.appendChild(cmdSpan)
-        display.prepend(par);
+        display.prepend(par);*/
         return;
-    }*/
+    }
     let res = run(input.value);
     input.value = "";
     console.log(res);
