@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Website</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="assets/icons/favicon.ico">
-        <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Homepage</title>
     </head>
     <body>
         <div id="wrapper">
-            <h1>Hallo</h1>
-            <div id="links">
-                <a href="/vector/">Vektoren Rechner</a>
-                <a href="https://github.com/stetide/stetide.github.io">Github Page</a>
+            <div class="page page1">
+                <div class="themeselection">
+                    <input type="button" class="circlebutton" id="light" title="light"></input>
+                    <input type="button" class="circlebutton" id="coffee" title="coffee"></input>
+                    <input type="button" class="circlebutton" id="dark" title="dark"></input>
+                </div>
+                <h1 id="firstname">Andre</h1>
+                <h1 id="lastname">Meyer</h1>
+            </div>
+            <div class="page page2">
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+                <div class="cardstack">
+                    <div class="card" id="card1"></div>
+                    <div class="card" id="card2"></div>
+                </div>
+            </div>
+            <div class="page page3">
+                <div class="animated"></div>
+                <div class="bottombar">
+                    <a href="github.com/stetide">GitHub</a>
+                    <a href="mailto:info@andre-meyer.eu">Email</a>
+                </div>
             </div>
         </div>
-        <script src="bubbles.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>

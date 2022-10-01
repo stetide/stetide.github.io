@@ -1,110 +1,183 @@
 :root {
-    --red: rgb(192, 90, 90);
-    --dark-grey: #131516;
-    --grey: #202122;
-    --light-grey: #34373a;
-    --white: #ccc;
-    --black: #000;
-}
+    --accent-color-light: #16856d;
+    --accent-color-coffee: #6bceb8;
+    --accent-color-dark: #67ddc3;
 
-@font-face {
-    font-family: "JetBrains";
-    src: url("assets/fonts/JetBrainsMono-VariableFont_wght.ttf");
+    --primary-color-light: #dfdfdf;
+    --primary-color-coffee: #a18a74;
+    --primary-color-dark: #424242;
+    
+    --secondary-color-dark: #242424;
+
+    --gradient: linear-gradient(135deg, #a5f1bb 0%, #6bcee2 100%);
 }
 
 * {
     padding: 0;
     margin: 0;
-    font-family: JetBrains;
-    font-weight: bold;
     box-sizing: border-box;
-    
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    transition: background-color .2s ease,
+                color .2s ease;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
+#wrapper, #wrapper[class*="light"] {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
 }
 
-body {
-    position: relative;
-    overflow: hidden;
-    background: var(--dark-grey);
-    /*background: radial-gradient(farthest-side, rgba(255,255,255,1) 0%, rgba(0,227,255,1) 4%, rgba(25,203,105,1) 11%, var(--dark-grey) 20%);*/
-    color: var(--black);
-    font-family: Hack, monospace;
-    z-index: -2;
+#wrapper[class*="coffee"] {
+    background-color: var(--primary-color-coffee);
+    color: var(--secondary-color-dark);
 }
 
-h1 {
-    width: 100%;
-    color: var(--white);
-    text-transform: uppercase;
-    font-size: 48pt;
-    font-weight: bold;
-    text-align: center;
+#wrapper[class*="dark"] {
+    background-color: var(--primary-color-dark);
+    color: var(--primary-color-dar);
 }
 
-#wrapper {
-    display: flex;
-    height: 100%;
-    padding: 5%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;    
+.page {
+    height: 100vh;
 }
 
-#links {
-    display: flex;
-    width: 60%;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-}
 
-a {
-    color: var(--red);
-    text-decoration: none;
-    font-size: 32px;
-    text-align: center;
-    outline: none;
-    background: linear-gradient(var(--red), var(--red));
-    padding: 0 5px;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: auto 4px;
-    transition: background-size .5s ease, color .2s linear;
-}
+/*
+###############
+#   PAGE 1    #
+###############
+*/
 
-a:hover {
-    background-size: auto 100%;
-    color: var(--black);
-}
-
-.bubble {
+.themeselection {
     position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+    width: 82px;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.page1 h1 {
+    font-size: 20vw;
+    position: absolute;
     top: 50%;
     left: 50%;
-    background: var(--dark-grey);
-    border: none;
-    border-radius: 50%;
-    box-shadow: inset 0 0 10px var(--black);
-    transition: transform 8s ease-out;
-    z-index: -1;
+    transform: translate(-50%, -50%);
 }
 
-@media (max-width: 1080px) {
-    #links {
-        height: 60%;
-        margin: 10% 0 10% 0;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
+.page1 h1, .page1 h1[class*="light"] {
+    color: var(--primary-color-dark);
+}
+
+.page1 h1[class*="coffee"] {
+    color: var(--secondary-color-dark);
+}
+
+.page1 h1[class*="dark"] {
+    color: var(--primary-color-light);
+}
+
+#firstname {
+    top: 44%;
+}
+
+#lastname {
+    top: 56%;
+}
+
+.circlebutton {
+    --size: 24px;
+    width: var(--size);
+    height: var(--size);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#light {
+    background-color: var(--primary-color-light);
+}
+
+#coffee {
+    background-color: var(--primary-color-coffee);
+}
+
+#dark {
+    background-color: var(--primary-color-dark);
+}
+
+/*
+###############
+#   PAGE 2    #
+###############
+*/
+
+.page2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--gradient);
+}
+
+.page2 p {
+    flex: 1;
+    padding: 1em;
+    text-align: center;
+    font-size: 3vh;
+}
+
+.cardstack {
+    flex: 3;
+}
+
+.card {
+    width: 60%;
+    height: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    border: 2px solid;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px #00000010;
+}
+
+#card1 {
+    background-color: yellowgreen;
+    z-index: 2;
+}
+
+#card2 {
+    z-index: 1;
+    background-color: burlywood;
+    transform: translateX(-50%) translate(30px, 30px);
+}
+
+/*
+###############
+#   PAGE 3    #
+###############
+*/
+
+.bottombar {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    top: 100%;
+}
+
+.bottombar {
+    background: var(--gradient);
+}
+
+.bottombar a {
+    text-decoration: none;
+}
+
+.bottombar a, .bottombar a[class*="light"] {
+    color: var(--primary-color-dark);
+}
+
+.bottombar a[class*="coffee"], .bottombar a[class*="dark"] {
+    color: var(--secondary-color-dark);
 }
