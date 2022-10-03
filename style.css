@@ -4,8 +4,10 @@
     --accent-color-dark: #67ddc3;
 
     --primary-color-light: #dfdfdf;
-    --primary-color-coffee: #a18a74;
-    --primary-color-dark: #424242;
+    --primary-color-coffee: #d8bc97;
+    /* --primary-color-dark: #424242; */
+    --primary-color-dark: #2e2c41;
+
     
     --secondary-color-dark: #242424;
 
@@ -13,11 +15,18 @@
 }
 
 * {
+    --duration: .5s;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    transition: background-color .2s ease,
-                color .2s ease;
+    transition: background-color var(--duration) ease,
+                color var(--duration) ease,
+                border-color var(--duration) ease;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 #wrapper, #wrapper[class*="light"] {
@@ -37,8 +46,8 @@
 
 .page {
     height: 100vh;
+    overflow: hidden;
 }
-
 
 /*
 ###############
@@ -46,12 +55,30 @@
 ###############
 */
 
+.blur[class*="dark"]{
+    width: 200px;
+    height: 200px;
+    background: #a5f1bb;
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(50px);
+    opacity: 0.3;
+    top: -50px;
+    left: -20px;
+}
+
+.blur:nth-child(2)[class*="dark"] {
+    background-color: #6bcee2;
+    top: 70px;
+    left: calc(100vw - 150px);
+}
+
 .themeselection {
     position: fixed;
     top: 20px;
     right: 20px;
     display: inline-flex;
-    width: 82px;
+    width: 12vh;
     justify-content: space-between;
     z-index: 3;
 }
@@ -85,7 +112,7 @@
 }
 
 .circlebutton {
-    --size: 24px;
+    --size: 3vh;
     width: var(--size);
     height: var(--size);
     border: 2px solid white;
@@ -116,6 +143,47 @@
     flex-direction: column;
     align-items: center;
     background: var(--gradient);
+    height: 140vh;
+}
+
+
+.page2 .waves {
+    height: 20vh;
+    width: 100%;
+}
+
+#waves-bottom {
+    transform: rotate(180deg) translateY(-2px);
+}
+
+.page2 .waves svg {
+    height: 200px;
+    width: 100%;
+    resize: horizontal;
+}
+
+svg #solid, svg #solid[class*="light"] {
+    color: var(--primary-color-light);
+}
+
+svg #solid[class*="coffee"] {
+    color: var(--primary-color-coffee);
+}
+
+svg #solid[class*="dark"] {
+    color: var(--primary-color-dark);
+}
+
+svg #tranlucent, svg #translucent[class*="light"] {
+    color: #dfdfdf88;
+}
+
+svg #translucent[class*="coffee"] {
+    color: #d8bc9788;
+}
+
+svg #translucent[class*="dark"] {
+    color: #42424288;
 }
 
 .page2 p {
@@ -139,14 +207,27 @@
     box-shadow: 10px 10px 10px 10px #00000010;
 }
 
+.card, .card[class*="light"] {
+    border-color: var(--primary-color-dark);
+    background-color: var(--primary-color-light);
+}
+
+.card[class*="coffee"] {
+    border-color: var(--secondary-color-dark);
+    background-color: var(--primary-color-coffee);
+}
+
+.card[class*="dark"] {
+    border-color: var(--primary-color-light);
+    background-color: var(--primary-color-dark);
+}
+
 #card1 {
-    background-color: yellowgreen;
     z-index: 2;
 }
 
 #card2 {
     z-index: 1;
-    background-color: burlywood;
     transform: translateX(-50%) translate(30px, 30px);
 }
 
@@ -163,7 +244,7 @@
     align-items: center;
     justify-content: space-evenly;
     position: relative;
-    top: 100%;
+    top: 90%;
 }
 
 .bottombar {
@@ -172,6 +253,7 @@
 
 .bottombar a {
     text-decoration: none;
+    font-size: 3vh;
 }
 
 .bottombar a, .bottombar a[class*="light"] {
