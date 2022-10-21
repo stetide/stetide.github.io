@@ -6,9 +6,9 @@
     </head>
     <body>
         <div id="wrapper">
+            <div class="blur"></div>
+            <div class="blur"></div>
             <div class="page page1">
-                <div class="blur"></div>
-                <div class="blur"></div>
                 <div class="themeselection">
                     <input type="button" class="circlebutton" id="light" title="light"></input>
                     <input type="button" class="circlebutton" id="coffee" title="coffee"></input>
@@ -19,10 +19,10 @@
             </div>
             <div class="page page2">
                 <div class="waves">
-                    <svg viewBox="0 0 100 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="transparent">
+                    <svg viewBox="0 0 100 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
                         <defs>
-                            <path id="opaque" d="M 0 0 V 50 Q 25 42, 50 50 T 100 50 V 0 Z" fill="inherit"/>
-                            <path id="transparent" d="M 0 50 V 55 Q 35 25, 70 55 T 100 55 V 50 Q 75 58, 50 50 T 0 50 Z" fill="inherit"/>
+                            <path id="opaque" d="M 0 0 V 50 Q 25 42, 50 50 T 100 50 V 0 Z"/>
+                            <path id="transparent" d="M 0 50 V 55 Q 35 25, 70 55 T 100 55 V 50 Q 75 58, 50 50 T 0 50 Z"/>
                             <mask id="cutout">
                                 <use href="#opaque" fill="white"/>
                                 <use href="#transparent" fill="black"/>
@@ -64,6 +64,7 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/gh/habetuz/sheets_tracking@1.0.0/sheets_tracking.js"></script>
         <script src="main.js"></script>
     </body>
 </html>

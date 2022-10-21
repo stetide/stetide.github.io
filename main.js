@@ -1,3 +1,11 @@
+// tracker settings
+// Add the url copied from step 2 here
+SHEETS_TRACKING.sheetsURL = "https://script.google.com/macros/s/AKfycbw8SYgVqixbgepog7bR29LX-5ZzEmpN9C23lGVeih2-Avz5iwSs4Qh1Yjd3A2dihW09/exec"
+
+// Add the name of your spreadsheet here
+SHEETS_TRACKING.sheetName = "Tracking"
+SHEETS_TRACKING.start()
+
 function setColorScheme(colorScheme) {
     wrapper = document.querySelector('#wrapper');
     wrapper.classList.remove('light', 'dark', 'coffee');
