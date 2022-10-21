@@ -4,9 +4,12 @@ SHEETS_TRACKING.sheetsURL = "https://script.google.com/macros/s/AKfycbw8SYgVqixb
 
 // Add the name of your spreadsheet here
 SHEETS_TRACKING.sheetName = "Tracking"
+
 SHEETS_TRACKING.start()
 
+// my stuff
 function setColorScheme(colorScheme) {
+    SHEETS_TRACKING.updateValue("Color scheme", colorScheme, "string_append");
     wrapper = document.querySelector('#wrapper');
     wrapper.classList.remove('light', 'dark', 'coffee');
     wrapper.classList.add(colorScheme);
