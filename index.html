@@ -1,70 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Homepage</title>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div class="blur"></div>
-            <div class="blur"></div>
-            <div class="page page1">
-                <div class="themeselection">
-                    <input type="button" class="circlebutton" id="light" title="light"></input>
-                    <input type="button" class="circlebutton" id="coffee" title="coffee"></input>
-                    <input type="button" class="circlebutton" id="dark" title="dark"></input>
-                </div>
-                <h1 id="firstname">Andre</h1>
-                <h1 id="lastname">Meyer</h1>
-            </div>
-            <div class="page page2">
-                <div class="waves">
-                    <svg viewBox="0 0 100 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
-                        <defs>
-                            <path id="opaque" d="M 0 0 V 50 Q 25 42, 50 50 T 100 50 V 0 Z"/>
-                            <path id="transparent" d="M 0 50 V 55 Q 35 25, 70 55 T 100 55 V 50 Q 75 58, 50 50 T 0 50 Z"/>
-                            <mask id="cutout">
-                                <use href="#opaque" fill="white"/>
-                                <use href="#transparent" fill="black"/>
-                            </mask>
-                        </defs>
-                        <g id="wave-g">
-                            <use id="solid" href="#opaque" mask="url(#cutout)" fill="currentColor"/>
-                            <use id="translucent" href="#transparent" fill="currentColor"/>
-                        </g>
-                    </svg>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
-                <div class="cardstack">
-                    <div class="card" id="card1"></div>
-                    <div class="card" id="card2"></div>
-                </div>
-                <div id="waves-bottom" class="waves">
-                    <svg viewBox="0 0 100 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="transparent">
-                        <defs>
-                            <path id="opaque" d="M 0 0 V 50 Q 25 42, 50 50 T 100 50 V 0 Z" fill="inherit"/>
-                            <path id="transparent" d="M 0 50 V 55 Q 35 25, 70 55 T 100 55 V 50 Q 75 58, 50 50 T 0 50 Z" fill="inherit"/>
-                            <mask id="cutout">
-                                <use href="#opaque" fill="white"/>
-                                <use href="#transparent" fill="black"/>
-                            </mask>
-                        </defs>
-                        <g id="wave-g">
-                            <use id="solid" href="#opaque" mask="url(#cutout)" fill="currentColor"/>
-                            <use id="translucent" href="#transparent" fill="currentColor"/>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-            <div class="page page3">
-                <div class="animated"></div>
-                <div class="bottombar">
-                    <a href="https://github.com/stetide">GitHub</a>
-                    <a href="mailto:info@andre-meyer.eu">Email</a>
-                </div>
-            </div>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Andre Meyer</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="parallax">
+            <div class="backlayer"></div>
+            <div class="midlayer"></div>
+            <div class="forelayer"></div>
         </div>
-        <script src="https://cdn.jsdelivr.net/gh/habetuz/sheets_tracking@1.0.0/sheets_tracking.js"></script>
-        <script src="main.js"></script>
-    </body>
+        <div class="content">
+            <h1>Andre Meyer</h1>
+            <h2>Homepage</h2>
+            <a href="mailto:mail@andre-meyer.eu">Email</a>
+        </div>
+    </div>
+</body>
 </html>

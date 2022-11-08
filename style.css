@@ -1,265 +1,91 @@
-:root {
-    --accent-color-light: #16856d;
-    --accent-color-coffee: #6bceb8;
-    --accent-color-dark: #67ddc3;
-
-    --primary-color-light: #dfdfdf;
-    --primary-color-coffee: #d8bc97;
-    /* --primary-color-dark: #424242; */
-    --primary-color-dark: #2e2c41;
-
-    
-    --secondary-color-dark: #242424;
-
-    --gradient: linear-gradient(135deg, #a5f1bb 0%, #6bcee2 100%);
-}
-
 * {
-    --duration: .5s;
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    transition: background-color var(--duration) ease,
-                color var(--duration) ease,
-                border-color var(--duration) ease;
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden;
+body {
+    /* background: #a0b2ca; */
+    background: linear-gradient(180deg, rgba(0,73,162,1) 0%, rgba(14,188,246,1) 52%, rgba(213,148,0,1) 100%); 
 }
 
-#wrapper, #wrapper[class*="light"] {
-    background-color: var(--primary-color-light);
-    color: var(--primary-color-dark);
-}
 
-#wrapper[class*="coffee"] {
-    background-color: var(--primary-color-coffee);
-    color: var(--secondary-color-dark);
-}
-
-#wrapper[class*="dark"] {
-    background-color: var(--primary-color-dark);
-    color: var(--primary-color-dar);
-}
-
-.page {
+#wrapper {
     height: 100vh;
-    overflow: hidden;
+    perspective: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
-/*
-###############
-#   PAGE 1    #
-###############
-*/
+.parallax {
+    transform-style: preserve-3d;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
 
-.blur[class*="dark"]{
-    width: 200px;
-    height: 200px;
-    background: #a5f1bb;
-    border-radius: 50%;
+.parallax > div {
     position: absolute;
-    filter: blur(50px);
-    opacity: 0.3;
-    top: -50px;
-    left: -20px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
-.blur:nth-child(2)[class*="dark"] {
-    background-color: #6bcee2;
-    top: 70px;
-    left: calc(100vw - 150px);
-}
-
-.themeselection {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: inline-flex;
-    width: 12vh;
-    justify-content: space-between;
-    z-index: 3;
-}
-
-.page1 h1 {
-    font-size: 20vw;
+.backlayer {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    background-image: url("mountain.png");
+    transform: translateZ(-50px) scale(6);
 }
 
-.page1 h1, .page1 h1[class*="light"] {
-    color: var(--primary-color-dark);
+.midlayer {
+    position: absolute;
+    background-image: url("forrest.png");
+    transform: translateZ(-30px) scale(4);
+    height: 50%;
+    bottom: 0;
 }
 
-.page1 h1[class*="coffee"] {
-    color: var(--secondary-color-dark);
+.forelayer {
+    background-image: url("rocks.png");
+    height: 100%;
 }
 
-.page1 h1[class*="dark"] {
-    color: var(--primary-color-light);
-}
-
-#firstname {
-    top: 44%;
-}
-
-#lastname {
-    top: 56%;
-}
-
-.circlebutton {
-    --size: 3vh;
-    width: var(--size);
-    height: var(--size);
-    border: 2px solid white;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#light {
-    background-color: var(--primary-color-light);
-}
-
-#coffee {
-    background-color: var(--primary-color-coffee);
-}
-
-#dark {
-    background-color: var(--primary-color-dark);
-}
-
-/*
-###############
-#   PAGE 2    #
-###############
-*/
-
-.page2 {
+.content {
+    transform-style: preserve-3d;
+    height: 100%;
+    background-color: white;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    background: var(--gradient);
-    height: 140vh;
-}
-
-
-.page2 .waves {
-    height: 20vh;
-    width: 100%;
-}
-
-#waves-bottom {
-    transform: rotate(180deg) translateY(-2px);
-}
-
-.page2 .waves svg {
-    height: 200px;
-    width: 100%;
-    resize: horizontal;
-}
-
-svg #solid, svg #solid[class*="light"] {
-    color: var(--primary-color-light);
-}
-
-svg #solid[class*="coffee"] {
-    color: var(--primary-color-coffee);
-}
-
-svg #solid[class*="dark"] {
-    color: var(--primary-color-dark);
-}
-
-svg #tranlucent, svg #translucent[class*="light"] {
-    color: #dfdfdf88;
-}
-
-svg #translucent[class*="coffee"] {
-    color: #d8bc9788;
-}
-
-svg #translucent[class*="dark"] {
-    color: #42424288;
-}
-
-.page2 p {
-    flex: 1;
-    padding: 1em;
+    color: #e25b23;
+    font-family: sans-serif;
     text-align: center;
-    font-size: 3vh;
 }
 
-.cardstack {
-    flex: 3;
+.content h1 {
+    transform: translateZ(2px) scale(.8);
+    font-size: 3em;
+    letter-spacing: 2em;
+    font-weight: bold;
 }
 
-.card {
-    width: 60%;
-    height: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    border: 2px solid;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px 10px #00000010;
+.content h2 {
+    transform: translateZ(7px) scale(.3);
+    font-size: 1em;
+    letter-spacing: 1.5em;
+    text-transform: uppercase;
+    font-weight: lighter;
 }
 
-.card, .card[class*="light"] {
-    border-color: var(--primary-color-dark);
-    background-color: var(--primary-color-light);
-}
-
-.card[class*="coffee"] {
-    border-color: var(--secondary-color-dark);
-    background-color: var(--primary-color-coffee);
-}
-
-.card[class*="dark"] {
-    border-color: var(--primary-color-light);
-    background-color: var(--primary-color-dark);
-}
-
-#card1 {
-    z-index: 2;
-}
-
-#card2 {
-    z-index: 1;
-    transform: translateX(-50%) translate(30px, 30px);
-}
-
-/*
-###############
-#   PAGE 3    #
-###############
-*/
-
-.bottombar {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.content a {
     position: relative;
-    top: 90%;
-}
-
-.bottombar {
-    background: var(--gradient);
-}
-
-.bottombar a {
     text-decoration: none;
-    font-size: 3vh;
-}
-
-.bottombar a, .bottombar a[class*="light"] {
-    color: var(--primary-color-dark);
-}
-
-.bottombar a[class*="coffee"], .bottombar a[class*="dark"] {
-    color: var(--secondary-color-dark);
+    color: #a6ccff;
+    top: 25%;
 }
