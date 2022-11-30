@@ -88,7 +88,7 @@ body {
 }
 
 .content h1 {
-    /* transform: translateZ(2px) scale(.8); */
+    transform: translateZ(2px) scale(.8);
     font-size: 3em;
     letter-spacing: 2em;
     margin-right: -2em;
@@ -96,7 +96,7 @@ body {
 }
 
 .content h2 {
-    /* transform: translateZ(7px) scale(.3); */
+    transform: translateZ(5px) scale(.5);
     position: relative;
     top: 5%;
     font-size: 1em;
