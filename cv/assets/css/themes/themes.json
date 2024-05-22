@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Elegant",
+        "image": "assets/images/theme-thumbnails/elegant.png",
+        "colors": [
+            {
+                "name": "Cappuccino",
+                "color": "#F5F3F1",
+                "href": "assets/css/themes/elegant/cappuccino.css"
+            },
+            {
+                "name": "Vanille",
+                "color": "#f7f2e8",
+                "href": "assets/css/themes/elegant/vanille.css"
+            }
+        ]
+    },
+    {
+        "name": "Pastell",
+        "image": "assets/images/theme-thumbnails/pastell.png",
+        "colors": [
+            {
+                "name": "Mint",
+                "color": "#C2C7C0",
+                "href": "assets/css/themes/pastell/mint.css"
+            },
+            {
+                "name": "Clay",
+                "color": "#c7c2c0",
+                "href": "assets/css/themes/pastell/clay.css"
+            },
+            {
+                "name": "Lavender",
+                "color": "#c4c0c7",
+                "href": "assets/css/themes/pastell/lavender.css"
+            }
+        ]
+    }
+]
