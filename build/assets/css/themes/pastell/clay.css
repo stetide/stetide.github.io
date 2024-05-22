@@ -1,9 +1,0 @@
-@import url('theme.css');
-
-:root {
-    --color-surface: white;
-    --color-accent: #c7c2c0;
-    --color-on-surface: black;
-    --color-on-accent: black;
-    --color-divider: #BFBFBF;
-}

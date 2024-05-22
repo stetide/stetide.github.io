@@ -1,9 +1,0 @@
-@import url('theme.css');
-
-:root {
-    --color-primary: #f7f2e8;
-    --color-on-primary: #69523d;
-    --color-surface: white;
-    --color-secondary: #ddd3c2;
-    --color-tertiary: #2c2c2c;
-}
