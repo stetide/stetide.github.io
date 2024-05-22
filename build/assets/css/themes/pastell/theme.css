@@ -1,0 +1,434 @@
+/* THEME MINT
+Variables:
+--color-surface: the background color of the main page
+--color-accent: the color for the decorative backgrounds 
+--color-on-surface: for elements (primarily font) on the main page
+--color-on-accent: for elements on the accent color */
+
+
+/* https://www.etsy.com/listing/1712255804/bewerbungsvorlage-deutsch-lebenslauf?dd_referrer=https%3A%2F%2Fduckduckgo.com%2F */
+
+/* GENERAL */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --sidebar-padding-horizontal: 10mm;
+}
+
+*,
+*::before,
+*::after {
+    font: inherit;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 11pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-font);
+}
+
+.page {
+    background-color: var(--color-surface);
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media print {
+    .page {
+        box-shadow: none;
+    }
+}
+
+.cv-input {
+    width: 100%;
+
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    text-align: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+}
+
+/* ###################### */
+/* # APPLICATION LETTER # */
+/* ###################### */
+
+.application-letter {
+    display: grid;
+    grid-template-columns: 25mm 85mm auto 20mm;
+    grid-template-rows: 35mm 40mm auto 25mm;
+
+    isolation: isolate;
+
+    position: relative;
+}
+
+/* .application-letter::before {
+    content: '';
+    background-color: var(--color-accent);
+    z-index: -1;
+
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    width: 50%;
+} */
+
+.application-letter::after {
+    --height: 30mm;
+
+    content: '';
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    height: var(--height);
+    z-index: -1;
+
+    background-color: var(--color-accent);
+    /* border: solid 0;
+    border-bottom-right-radius: var(--height); */
+}
+
+#al-address-to, #al-address-from {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    align-self: end;
+    padding-bottom: 3rem;
+}
+
+#al-address-from {
+    grid-column: -3 / -2;
+}
+
+.application-letter .al-main {
+    --line-height: 1.5rem;
+
+    grid-row: -3 / -2;
+    grid-column: 2 / -2;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--line-height);
+
+    padding: 3rem 0 2rem 0;
+}
+
+.application-letter .al-main::before, .application-letter .al-main::after {
+    content: '';
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    transform: translateY(-2rem);
+
+    background-color: var(--color-divider);
+}
+
+.application-letter .al-main::after {
+    bottom: 25mm;
+    transform: translateY(0);
+}
+
+.application-letter .al-date {
+    text-align: right;
+}
+
+.application-letter .al-heading {
+    font-weight: bold;
+}
+
+.application-letter .al-motivation .content {
+    line-height: var(--line-height);
+}
+
+
+.application-letter .al-signature {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.application-letter .cv-signature-img {
+    height: 3rem;
+    object-fit: contain;
+}
+
+/* ###### */
+/* # CV # */
+/* ###### */
+
+/* CV FIRST PAGE */
+
+.cv {
+    display: grid;
+    isolation: isolate;
+    grid-template-columns: 5% 32% auto;
+    grid-template-rows: 4% 2% 19% auto 5%;
+}
+
+.cv::before {
+    content: '';
+    background-color: var(--color-accent);
+    grid-column: 2;
+    grid-row: 2 / -2;
+    z-index: -2;
+    border-radius: 50% / 10%;
+}
+
+/* PROFILE PICTURE */
+
+.cv-profile-picture {
+    display: none;
+    grid-column: 2;
+    grid-row: 3;
+    place-self: end center;
+
+    /* width: 60%; */
+    height: 100%;
+    aspect-ratio: 1;
+    border: solid 0;
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+.cv-profile-picture-img {
+    object-fit: contain;
+    height: 100%;
+}
+
+.cv:first-of-type .cv-profile-picture {
+    display: block;
+}
+
+/* TITLE */
+
+.cv-title {
+    display: none;
+    grid-column: -2 / -1;
+    grid-row: 2 / 4;
+    place-self: center;
+
+    margin: 0 var(--sidebar-padding-horizontal);
+
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    color: var(--color-on-primary);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cv-title::after {
+    content: '';
+
+    display: block;
+    margin: 5mm auto 0 auto;
+    height: 10mm;
+    width: 2px;
+    background-color: var(--color-divider);
+}
+
+.cv:first-of-type .cv-title {
+    display: block;
+}
+
+.cv-title-h1 {
+    font-size: 2.8rem;
+    font-weight: 100;
+    letter-spacing: .3rem;
+}
+
+.cv-title-h2 {
+    font-size: 1.1rem;
+    letter-spacing: .3rem;
+    margin-top: .8rem;
+}
+
+/* SIDEBAR */
+
+.cv-sidebar {
+    grid-column: 2 / 3;
+    grid-row: 4 / -2;
+
+    padding: var(--sidebar-padding-horizontal) 5mm;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cv:first-of-type .cv-sidebar {
+    grid-row: -3 / -2;
+}
+
+.cv-sidebar .cv-category-icon,
+.cv-sidebar .cv-category-dropdown,
+.cv-sidebar .cv-category-hr {
+    display: none;
+}
+
+.cv-sidebar .cv-category {
+    --pad: 1.2rem;
+    
+    position: relative;
+    padding-top: var(--pad);
+}
+
+.cv-sidebar .cv-category::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(0rem - var(--pad));
+    left: calc(0mm - var(--sidebar-padding-horizontal));
+    right: calc(0mm - var(--sidebar-padding-horizontal));
+    height: 2px;
+    background-color: var(--color-surface);
+}
+
+.cv-sidebar .cv-category:first-of-type {
+    padding: 0;
+}
+
+.cv-sidebar .cv-category:first-of-type::before {
+    display: none;
+}
+
+.cv-sidebar .cv-category-heading {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: .16rem;
+    color: var(--color-on-primary);
+
+    margin-bottom: 1rem;
+}
+
+.cv-sidebar .cv-category-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.cv-sidebar .cv-item {
+    display: flex;
+    flex-direction: row;
+    gap: .2rem;
+}
+
+.cv-sidebar .cv-item-header {
+    display: none;
+}
+
+.cv-sidebar .cv-item-content {
+    color: var(--color-tertiary);
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.cv-sidebar .cv-item-content .cv-input {
+    text-indent: 1rem;
+}
+
+/* MAIN */
+
+.cv-main {
+    grid-column: -2 / -1;
+    grid-row: 4 / -1;
+
+    padding: var(--sidebar-padding-horizontal);
+
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.cv-main .cv-category-icon,
+.cv-main .cv-category-dropdown,
+.cv-main .cv-category-hr {
+    display: none;
+}
+
+.cv-main .cv-category-header {
+    --font-height: 1.1rem;
+
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    letter-spacing: .3rem;
+    font-size: var(--font-height);
+}
+
+.cv-main .cv-category-header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-divider);
+}
+
+.cv-main .cv-category-heading {
+    margin: 0 0 .7rem 10mm;
+
+    width: calc(100% - 10mm);
+}
+
+.cv-main .cv-category-content {
+    padding: .7rem 0 0 10mm;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cv-main .cv-item {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.cv-main .cv-item-header {
+    /* text-transform: uppercase; */
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.cv-main .cv-item-content :first-child {
+    margin-bottom: 1rem;
+
+    font-weight: 500;
+}
+
+.cv-main .cv-item-content *:not(:first-child) {
+    margin-left: 5mm;
+
+    color: var(--color-tertiary);
+}
+
+/* SIGNATURE */
+
+.cv-signature {
+    display: none;
+    text-align: right;
+    margin-right: 10mm;
+}
+
+.cv:last-of-type .cv-signature {
+    display: block;
+}
+
+.cv-signature-citydate {
+    margin-bottom: 1rem;
+}
+
+.cv-signature img {
+    height: 3rem;
+    object-fit: contain;
+    
+}
