@@ -97,8 +97,29 @@ function cvInputOnKeyDown(event) {
             }
             break;
     }
+        
+    // 5 px is the focus inset
+    console.log(elem.clientWidth, elem.scrollWidth);
+    if (elem.scrollWidth > elem.clientWidth) {
+        elem.setAttribute('overflown', 'true');
+    } else if (elem.hasAttribute('overflown')) {
+        elem.removeAttribute('overflown');
+    }
 }
 
+function acceptDropImage(event, callerElem, targetQuerySelector) {
+    event.preventDefault();
+    if (event.dataTransfer.files) {
+        const file = event.dataTransfer.files[0];
+        if (file.type.match('^image/')) {
+            url = URL.createObjectURL(file);
+            document.querySelectorAll(targetQuerySelector).forEach(elem => {
+                elem.src = url;
+            });
+            callerElem.querySelector(targetQuerySelector).src = URL.createObjectURL(file);
+        }
+    }
+}
 
 window.addEventListener('dragover', (e) => {
     e.preventDefault();

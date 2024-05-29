@@ -42,13 +42,22 @@ html, body {
 }
 
 .topbar .hamburger {
-    width: 2rem;
-    height: 2rem;
+    --size: 3rem;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
     border: none;
     background-color: transparent;
     background-image: url('../icons/paint.png');
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: calc(var(--size) - 1rem);
+    background-position: center;
     cursor: pointer;
+}
+
+.topbar:has(+ .sidebar[open]) .hamburger {
+    filter: invert(100%);
+    background-color: #7c7c7c;
 }
 
 .sidebar {
@@ -82,6 +91,11 @@ html, body {
     }   
 }
 
+.sidebar .theme-block {
+    position: relative;
+    padding: 0;
+}
+
 .sidebar .theme-name {
     font-size: 1.1rem;
     letter-spacing: .16rem;
@@ -94,13 +108,17 @@ html, body {
 }
 
 .sidebar .theme-colors {
+    position: absolute;
+    bottom: calc(.4rem + 4px);
+    left: .4rem;
+
     display: flex;
     flex-direction: row;
-    gap: .3rem;
+    gap: .4rem;
 }
 
 .sidebar .theme-color-button {
-    --size: calc(1.1rem + 2px);
+    --size: calc(2.8rem + 2px);
     width: var(--size);
     height: var(--size);
     /* background-color: attr(theme-color color, white); */
@@ -209,7 +227,13 @@ html, body {
 }
 
 .cv-input:focus {
-    padding-left: 5px;
+    /* padding-left: 5px; */
+    padding: 0;
+}
+
+.cv-input[overflown="true"] {
+    outline: 2px solid var(--color-warn);
+    outline-offset: 4px;
 }
 
 #application-letter {

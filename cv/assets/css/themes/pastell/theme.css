@@ -188,6 +188,9 @@ html {
     grid-row: 3;
     place-self: end center;
 
+    justify-content: center;
+    align-items: center;
+
     /* width: 60%; */
     height: 100%;
     aspect-ratio: 1;
@@ -203,7 +206,7 @@ html {
 }
 
 .cv:first-of-type .cv-profile-picture {
-    display: block;
+    display: flex;
 }
 
 /* TITLE */

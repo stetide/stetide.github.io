@@ -20,23 +20,23 @@ class CvSignature extends HTMLElement {
 		this.appendChild(template.content.cloneNode(true));
 
 		this.querySelector('.cv-signature-container').addEventListener('drop', (e) => {
-		    e.preventDefault();
+		    acceptDropImage(e, this, '.cv-signature-img');
+		    // e.preventDefault();
 		
-		    if (e.dataTransfer.items) {
-		        const item = e.dataTransfer.items[0];
+		    // if (e.dataTransfer.files) {
+		    //     const file = e.dataTransfer.files[0];
 		
-		        if (item.type.match('^image/')) {
-		            const file = item.getAsFile();
-		            const reader = new FileReader();
-		            reader.readAsDataURL(file);
-		            reader.onloadend = () => {
-		                // this.querySelector('.cv-signature-img').src = reader.result;
-		                document.querySelectorAll('.cv-signature-img').forEach(elem => {
-		                    elem.src = reader.result;
-		                })
-		            };
-		        }
-		    }
+		    //     if (file.type.match('^image/')) {
+		    //         const reader = new FileReader();
+		    //         reader.readAsDataURL(file);
+		    //         reader.onloadend = () => {
+		    //             // this.querySelector('.cv-signature-img').src = reader.result;
+		    //             document.querySelectorAll('.cv-signature-img').forEach(elem => {
+		    //                 elem.src = reader.result;
+		    //             })
+		    //         };
+		    //     }
+		    // }
 		});
 		
 		if (!this.hasAttribute('citydate')) {
