@@ -1,0 +1,7 @@
+@import url('theme.css');
+
+:root {
+    --color-surface: white;
+    --color-divider: #dbdbdb;
+    --color-accent: #5976ac;
+}

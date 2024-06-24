@@ -1,0 +1,279 @@
+:root {
+    --border-radius: 4px;
+    --font-size: 14px;
+    --transition-time: .2s;
+
+    --default-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.topbar, .sidebar {
+    z-index: 1;
+}
+
+.topbar {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: white;
+    box-shadow: var(--default-box-shadow);
+
+    left: 0;
+    right: 0;
+    height: 6rem;
+    padding: 2rem 7rem 2rem 2rem;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+}
+
+.page {
+    scroll-margin-top: calc(6rem + 20px);
+}
+
+.topbar .left {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+
+.topbar .hamburger {
+    --size: 3rem;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+}
+
+.topbar .hamburger::after {
+    content: '';
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    background-image: url('../icons/paint.png');
+    background-repeat: no-repeat;
+    background-size: calc(var(--size) - 1rem);
+    background-position: center;
+    cursor: pointer;
+}
+
+.topbar:has(+ .sidebar[open]) .hamburger {
+    background-color: #7c7c7c;
+}
+
+.topbar:has(+ .sidebar[open]) .hamburger::after {
+    filter: invert(100%);
+}
+    
+.sidebar {
+    position: fixed;
+    
+    left: 0;
+    top: 6rem;
+    bottom: 0;
+    width: 0;
+
+    transition: .08s;
+    background-color: white;
+    overflow: hidden scroll;
+
+    padding: 1rem 0;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.sidebar[open] {
+    padding: 1rem 2rem;
+    width: min(25%, 300px);
+    box-shadow: 0 0 0 0 white, var(--default-box-shadow);
+}
+
+@media (min-width: 1120px) {
+    .sidebar[open] ~ #wrapper {
+        padding-left: min(25%, 300px);
+    }   
+}
+
+.sidebar .theme-block {
+    position: relative;
+    padding: 0;
+
+    /* --color-button-size: calc(2.8rem + 2px); */
+    --color-buttons-gap: .4rem;
+}
+
+.sidebar .theme-name {
+    font-size: 1.1rem;
+    letter-spacing: .16rem;
+}
+
+.sidebar .theme-img {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sidebar .theme-colors {
+    position: absolute;
+    bottom: calc(.6rem + 2px);
+    left: .4rem;
+    right: .4rem;
+
+    display: flex;
+    flex-direction: row;
+    gap: var(--color-buttons-gap);
+    flex-wrap: wrap;
+}
+
+.sidebar .theme-color-button {
+    aspect-ratio: 1;
+    /* background-color: attr(theme-color color, white); */
+    width: calc(25% - 4px - var(--color-buttons-gap) / 3);
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.info {
+    font-size: 2rem;
+    font-family: serif;
+    cursor: pointer;
+    color: #00000080;
+}
+
+.info:hover::after {
+    content: 'Zum Bearbeiten des Dokuments das Kontextmenü (Rechtsklick) benutzen. Bilder per Drag-and-Drop ersetzen.';
+
+    position: absolute;
+    top: 0;
+    right: 10rem;
+    top: 2rem;
+    transform: translateY(-25%);
+    font-size: 0.9rem;
+    max-width: 400px;
+    text-align: right;
+}
+
+#wrapper {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: calc(20px + 6rem) 0 20px 0;
+    width: 100%;
+    height: max-content;
+    transition: .08s;
+}
+
+#cv-context-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 1;
+
+    width: 300px;
+    min-height: 100px;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+}
+
+#cv-context-menu input[type="button"] {
+    border: none;
+    background: none;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+#cv-context-menu input[type="button"]:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#cv-context-menu .divider {
+    height: 1px;
+    width: calc(100% - 4px);
+    margin: 0 auto;
+    background-color: black;
+}
+
+.page {
+    width: 210mm;
+    /* width: 211mm; */
+    height: 297mm;
+
+    /* margin: 0 auto; */
+}
+
+/* .page:not(:last-of-type) {
+    margin-bottom: 20px;
+} */
+
+@media print {
+    .topbar, .sidebar, #cv-context-menu {
+        display: none;
+    }
+
+    #wrapper {
+        padding: 0;
+        gap: 0;
+    }
+
+    .page {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.cv-input {
+    background-color: transparent;
+    /* width: 100%; */
+    border-radius: var(--border-radius);
+    padding-left: 0;
+    border: none;
+    outline: none;
+    transition: all var(--transition-time);
+}
+
+.cv-input:placeholder-shown, .cv-input:focus {
+    background-color: #00000022;
+}
+
+.cv-input:focus {
+    /* padding-left: 5px; */
+    padding: 0;
+}
+
+.cv-input[overflown="true"] {
+    outline: 2px solid var(--color-warn);
+    outline-offset: 4px;
+}
+
+#application-letter {
+    display: grid;
+    grid-template-columns: 25mm 85mm 80mm 21mm;
+    grid-template-rows: 45mm 55mm 172mm 25mm;
+}
+
+.cv-category-icon-dropdown {
+    transition: all var(--transition-time);
+}
